@@ -11,8 +11,8 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 
-#transfer_output_files =  out.txt  ## Output File name 
-#transfer_output_remaps = "out.txt=$(Dir)/out.txt" ## Remap to other name
+transfer_output_files =  out.txt  
+transfer_output_remaps = "out.txt=$(Dir)/out.txt"
 
 #output = job_$(Process).out
 #error = job_$(Process).err
