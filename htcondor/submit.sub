@@ -1,0 +1,38 @@
+# Job description file for condor job 
+
+#executable = check_os_release.sh
+executable = cal.py
+universe   = vanilla
+arguments  = $(Process)
+log = condor.log
+
+getenv     = True
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+
+#transfer_output_files =  out.txt  ## Output File name 
+#transfer_output_remaps = "out.txt=$(Dir)/out.txt" ## Remap to other name
+
+#output = job_$(Process).out
+#error = job_$(Process).err
+#output = job_$(Hostname).out
+#error = job_$(Hostname).err
+output = $(Dir)/job.out
+error = $(Dir)/job.err
+
+#requirements = (Machine =?= "$(Hostname)")
+#requirements = (Machine =!= "cms-gpu01.sdfarm.kr")
+
+#request_Cpus=1
+#request_GPUs =0 
+#request_memory=1000G
+#request_disk = 2G
+
+
+#queue Hostname from t2nodes.txt
+#queue 1 Hostname from t3nodes.txt
+#queue Hostname from hcpnodes.txt
+#queue Hostname from gpu.txt
+queue Dir matching dirs test_output*
+#queue  
