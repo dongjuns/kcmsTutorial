@@ -10,19 +10,12 @@ getenv     = True
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
-
-transfer_output_files =  out.txt  
-transfer_output_remaps = "out.txt=$(Dir)/out.txt"
-
 #output = job_$(Process).out
 #error = job_$(Process).err
-#output = job_$(Hostname).out
-#error = job_$(Hostname).err
-output = $(Dir)/job.out
-error = $(Dir)/job.err
+output = job_$(Hostname).out
+error = job_$(Hostname).err
 
-#requirements = (Machine =?= "$(Hostname)")
-#requirements = (Machine =!= "cms-gpu01.sdfarm.kr")
+requirements = (Machine =?= "$(Hostname)")
 
 #request_Cpus=1
 #request_GPUs =0 
@@ -30,9 +23,5 @@ error = $(Dir)/job.err
 #request_disk = 2G
 
 
-#queue Hostname from t2nodes.txt
-#queue 1 Hostname from t3nodes.txt
-#queue Hostname from hcpnodes.txt
-#queue Hostname from gpu.txt
-queue Dir matching dirs test_output*
-#queue  
+queue 1 Hostname from t3nodes.txt
+#queue 3 
